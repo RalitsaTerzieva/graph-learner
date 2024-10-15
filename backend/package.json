@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev src/index.ts",
+    "build": "rm -rf dist && tsc -p . --traceResolution",
+    "lint": "eslint . --ext .js,.tsx,.ts",
+    "test": "jest src"
   },
   "keywords": [],
   "author": "",
