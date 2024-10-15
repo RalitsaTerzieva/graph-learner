@@ -1,6 +1,6 @@
 import { doLogin, getUserBy } from '../../lib/auth'
 import { getUserData } from '../../lib/jwt'
-import { ICreateUserInput, ILoginInput, IModels, IToken, IUser } from '../../types'
+import { ICreateUserInput, ILoginInput, IModels, IToken, IUser } from '../../types/interfaces'
 
 export default {
   Query: {

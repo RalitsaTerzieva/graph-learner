@@ -1,6 +1,6 @@
 import { encrypt, isPasswordMatch } from '@contentpi/lib'
 
-import { IModels, IToken, IUser } from '../types'
+import { IModels, IToken, IUser } from './../types/interfaces'
 import { createToken } from './jwt'
 
 export const getUserBy = async (where: any, models: IModels): Promise<IUser> => {
