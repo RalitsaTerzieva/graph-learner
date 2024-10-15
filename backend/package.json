@@ -19,6 +19,7 @@
     "graphql": "^16.9.0",
     "graphql-middleware": "^6.1.35",
     "graphql-tag": "^2.12.6",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.13.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.37.4"
