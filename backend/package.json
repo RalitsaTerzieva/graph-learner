@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.11.0",
+    "@contentpi/lib": "^1.0.10",
     "dotenv": "^16.4.5",
     "graphql": "^16.9.0",
     "graphql-middleware": "^6.1.35",
