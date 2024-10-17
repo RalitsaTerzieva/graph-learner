@@ -4,15 +4,17 @@ import Error404 from './pages/error404'
 import HomePage from './pages/home'
 import LoginPage from './pages/login'
 
-const AppRoutes = () => {
-    <>
-    <Router>
-        <Routes>
-            <Route path='/' element={<HomePage />}/>
-            <Route path='/dashboard' element={<DashboardPage />}/>
-            <Route path='/login' element={<LoginPage />}/>
-            <Route element={<Error404 />}/>
-        </Routes>
-    </Router>
+const AppRoutes: React.FC = ()  => {
+    return <>
+        <Router>
+            <Routes>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/dashboard' element={<DashboardPage />} />
+                <Route path='/login' element={<LoginPage />} />
+                <Route element={<Error404 />} />
+            </Routes>
+        </Router>
     </>
 }
+
+export default AppRoutes;
