@@ -1,91 +1,85 @@
 import { redirectTo } from '@contentpi/lib'
 import { ChangeEvent, FC, useState } from 'react'
-
-import { IUser } from './../../pages/'
 import { StyledLogin } from './Login.styled'
 
+interface IUser {
+  id?: string;
+  email: string;
+  password: string;
+  username?: string;
+  role?: string;
+  active?: boolean;
+}
+
 interface IProps {
-  login(input: any): any
-  currentUrl: string
+  login(input: IUser): any;
+  currentUrl: string;
 }
 
 const Login: FC<IProps> = ({ login, currentUrl }) => {
-  // States
   const [values, setValues] = useState({
     email: '',
     password: ''
-  })
-  const [errorMessage, setErrorMessage] = useState('')
-  const [invalidLogin, setInvalidLogin] = useState(false)
+  });
+  const [errorMessage, setErrorMessage] = useState('');
+  const [invalidLogin, setInvalidLogin] = useState(false);
 
-  // Methods
   const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    const {
-      target: { name, value }
-    } = e
+    const { name, value } = e.target;
 
-    if (name) {
-      setValues((prevValues: any) => ({
-        ...prevValues,
-        [name]: value
-      }))
-    }
-  }
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value
+    }));
+  };
 
   const handleSubmit = async (user: IUser): Promise<void> => {
-    // Here we execute the login mutation
-    const response = await login(user)
+    const response = await login(user);
 
     if (response.error) {
-      // If the login is invalid...
-      setInvalidLogin(true)
-      setErrorMessage(response.message)
+      setInvalidLogin(true);
+      setErrorMessage(response.message);
     } else {
-      // If the login is correct...
-      redirectTo(currentUrl || '/')
+      redirectTo(currentUrl || '/');
     }
-  }
+  };
 
   return (
-    <>
-      <StyledLogin>
-        <div className="wrapper">
-          {invalidLogin && <div className="alert">{errorMessage}</div>}
-          <div className="form">
-            <p>
-              <input
-                autoComplete="off"
-                type="email"
-                className="email"
-                name="email"
-                placeholder="Email"
-                onChange={onChange}
-                value={values.email}
-              />
-            </p>
-
-            <p>
-              <input
-                autoComplete="off"
-                type="password"
-                className="password"
-                name="password"
-                placeholder="Password"
-                onChange={onChange}
-                value={values.password}
-              />
-            </p>
-
-            <div className="actions">
-              <button name="login" onClick={() => handleSubmit(values)}>
-                Login
-              </button>
-            </div>
+    <StyledLogin>
+      <div className="wrapper">
+        {invalidLogin && <div className="alert">{errorMessage}</div>}
+        <div className="form">
+          <p>
+            <input
+              autoComplete="off"
+              type="email"
+              className="email"
+              name="email"
+              placeholder="Email"
+              onChange={onChange}
+              value={values.email}
+            />
+          </p>
+          <p>
+            <input
+              autoComplete="off"
+              type="password"
+              className="password"
+              name="password"
+              placeholder="Password"
+              onChange={onChange}
+              value={values.password}
+            />
+          </p>
+          <div className="actions">
+            <button name="login" onClick={() => handleSubmit(values)}>
+              Login
+            </button>
           </div>
         </div>
-      </StyledLogin>
-    </>
-  )
-}
+      </div>
+    </StyledLogin>
+  );
+};
 
-export default Login
+export default Login;
