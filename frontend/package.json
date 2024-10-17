@@ -23,6 +23,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/client": "^3.11.8",
     "@contentpi/lib": "^1.0.10",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
