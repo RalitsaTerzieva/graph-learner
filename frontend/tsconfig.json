@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
       "sourceMap": true,
-      "target": "ESNext",
-      "lib": ["dom", "dom.iterable", "esnext"],
+      "types": ["node"],
+      "target": "es6",
+      "lib": ["dom", "dom.iterable", "esnext", "es6"],
       "allowJs": true,
       "skipLibCheck": true,
       "esModuleInterop": true,
